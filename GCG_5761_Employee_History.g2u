@@ -1,0 +1,1175 @@
+Program.Sub.ScreenSU.Start
+Gui.F_Hist_Maint..Create
+Gui.F_Hist_Maint..Caption("History Maintenance")
+Gui.F_Hist_Maint..Size(4080,8985)
+Gui.F_Hist_Maint..MinX(0)
+Gui.F_Hist_Maint..MinY(0)
+Gui.F_Hist_Maint..Position(0,0)
+Gui.F_Hist_Maint..BackColor(-2147483633)
+Gui.F_Hist_Maint..MousePointer(0)
+Gui.F_Hist_Maint..Event(UnLoad,F_Hist_Maint_UnLoad)
+Gui.F_Hist_Maint.gsgcMaint.Create(GsGridControl)
+Gui.F_Hist_Maint.gsgcMaint.Size(3960,7200)
+Gui.F_Hist_Maint.gsgcMaint.Position(0,720)
+Gui.F_Hist_Maint.gsgcMaint.Anchor(15)
+Gui.F_Hist_Maint.cmdMaintSave.Create(Button)
+Gui.F_Hist_Maint.cmdMaintSave.Size(1020,390)
+Gui.F_Hist_Maint.cmdMaintSave.Position(285,8010)
+Gui.F_Hist_Maint.cmdMaintSave.Caption("Save")
+Gui.F_Hist_Maint.cmdMaintSave.Event(Click,cmdMaintSave_Click)
+Gui.F_Hist_Maint.cmdMaintSave.Anchor(6)
+Gui.F_Hist_Maint.cmdMaintAdd.Create(Button)
+Gui.F_Hist_Maint.cmdMaintAdd.Size(1020,390)
+Gui.F_Hist_Maint.cmdMaintAdd.Position(285,165)
+Gui.F_Hist_Maint.cmdMaintAdd.Caption("Add Row")
+Gui.F_Hist_Maint.cmdMaintAdd.DefaultValue("")
+Gui.F_Hist_Maint.cmdMaintAdd.Event(Click,cmdMaintAdd_Click)
+Gui.F_Hist_Maint.cmdMaintReset.Create(Button)
+Gui.F_Hist_Maint.cmdMaintReset.Size(1020,390)
+Gui.F_Hist_Maint.cmdMaintReset.Position(1470,8010)
+Gui.F_Hist_Maint.cmdMaintReset.Caption("Reset")
+Gui.F_Hist_Maint.cmdMaintReset.Event(Click,cmdMaintReset_Click)
+Gui.F_Hist_Maint.cmdMaintReset.Anchor(6)
+Gui.F_Hist_Maint.cmdValues.Create(Button)
+Gui.F_Hist_Maint.cmdValues.Size(1020,390)
+Gui.F_Hist_Maint.cmdValues.Position(1470,165)
+Gui.F_Hist_Maint.cmdValues.Caption("Values")
+Gui.F_Hist_Maint.cmdValues.Event(Click,cmdValues_Click)
+Gui.F_History..Create
+Gui.F_History..Caption("History")
+Gui.F_History..Size(13560,7140)
+Gui.F_History..MinX(0)
+Gui.F_History..MinY(0)
+Gui.F_History..Position(0,0)
+Gui.F_History..BackColor(-2147483633)
+Gui.F_History..MousePointer(0)
+Gui.F_History..Event(UnLoad,F_History_UnLoad)
+Gui.F_History.cmdHistAdd.Create(Button)
+Gui.F_History.cmdHistAdd.Size(1020,390)
+Gui.F_History.cmdHistAdd.Position(285,165)
+Gui.F_History.cmdHistAdd.Caption("Add Entry")
+Gui.F_History.cmdHistAdd.Event(Click,cmdHistAdd_Click)
+Gui.F_History.cmdHistAdd.Enabled(False)
+Gui.F_History.gsgcHistory.Create(GsGridControl)
+Gui.F_History.gsgcHistory.Size(13440,5430)
+Gui.F_History.gsgcHistory.Position(0,720)
+Gui.F_History.gsgcHistory.Anchor(15)
+Gui.F_History.gsgcHistory.Event(RowClick,gsgcHistory_RowClick)
+Gui.F_History.cmdSave.Create(Button)
+Gui.F_History.cmdSave.Size(1020,390)
+Gui.F_History.cmdSave.Position(285,6330)
+Gui.F_History.cmdSave.Caption("Save")
+Gui.F_History.cmdSave.Anchor(6)
+Gui.F_History.cmdSave.Event(Click,cmdSave_Click)
+Gui.F_History.txtEmployeeID.Create(TextBox,"",True,1215,300,0,1560,330,False,0,"Arial",8,-2147483643,1)
+Gui.F_History.txtEmployeeID.MaxLength(5)
+Gui.F_History.txtEmployeeID.Event(Change,txtEmployeeID_Change)
+Gui.F_History.cmdEmployeeBRW.Create(Button)
+Gui.F_History.cmdEmployeeBRW.Enabled(False)
+Gui.F_History.cmdEmployeeBRW.Size(375,375)
+Gui.F_History.cmdEmployeeBRW.Position(2940,180)
+Gui.F_History.cmdEmployeeBRW.Caption("^")
+Gui.F_History.cmdEmployeeBRW.Event(Click,cmdEmployeeBRW_Click)
+Gui.F_History.lblEmployee.Create(Label,"Employee",True,1140,255,0,1605,135,True,0,"Arial",8,-2147483633,0)
+Gui.F_History.lblEmployee.DefaultValue("")
+Gui.F_New_Hist..Create
+Gui.F_New_Hist..Caption("New Record")
+Gui.F_New_Hist..Size(3015,2865)
+Gui.F_New_Hist..MinX(0)
+Gui.F_New_Hist..MinY(0)
+Gui.F_New_Hist..Position(0,0)
+Gui.F_New_Hist..BackColor(-2147483633)
+Gui.F_New_Hist..MousePointer(0)
+Gui.F_New_Hist..Event(UnLoad,F_New_Hist_UnLoad)
+Gui.F_New_Hist..MaxButton(False)
+Gui.F_New_Hist..Sizeable(False)
+Gui.F_New_Hist.ddlEventType.Create(DropDownList)
+Gui.F_New_Hist.ddlEventType.Size(2445,330)
+Gui.F_New_Hist.ddlEventType.Position(330,600)
+Gui.F_New_Hist.ddlEventType.Event(Click,ddlEventType_Click)
+Gui.F_New_Hist.dtpEventDate.Create(DatePicker)
+Gui.F_New_Hist.dtpEventDate.Size(1755,285)
+Gui.F_New_Hist.dtpEventDate.Position(360,1470)
+Gui.F_New_Hist.cmdNewUpdate.Create(Button)
+Gui.F_New_Hist.cmdNewUpdate.Size(1020,390)
+Gui.F_New_Hist.cmdNewUpdate.Position(570,2055)
+Gui.F_New_Hist.cmdNewUpdate.Caption("Update")
+Gui.F_New_Hist.cmdNewUpdate.Event(Click,cmdNewUpdate_Click)
+Gui.F_New_Hist.cmdNewUpdate.Enabled(False)
+Gui.F_New_Hist.lblEventType.Create(Label,"Record Type",True,1935,255,0,450,345,True,0,"Arial",8,-2147483633,0)
+Gui.F_New_Hist.lblRecordDate.Create(Label,"Record Date",True,1935,255,0,435,1230,True,0,"Arial",8,-2147483633,0)
+Gui.F_Hist_Vals..Create
+Gui.F_Hist_Vals..Caption("History Values")
+Gui.F_Hist_Vals..Size(15210,6660)
+Gui.F_Hist_Vals..MinX(0)
+Gui.F_Hist_Vals..MinY(0)
+Gui.F_Hist_Vals..Position(0,0)
+Gui.F_Hist_Vals..BackColor(-2147483633)
+Gui.F_Hist_Vals..MousePointer(0)
+Gui.F_Hist_Vals..Event(UnLoad,F_Hist_Vals_UnLoad)
+Gui.F_Hist_Vals.gsgcValues.Create(GsGridControl)
+Gui.F_Hist_Vals.gsgcValues.Size(15090,5715)
+Gui.F_Hist_Vals.gsgcValues.Position(0,660)
+Gui.F_Hist_Vals.gsgcValues.Anchor(15)
+Gui.F_Hist_Vals.gsgcValues.Event(CellValueChanged,gsgcValues_CellValueChanged)
+Gui.F_Hist_Vals.cmdValAddRow.Create(Button)
+Gui.F_Hist_Vals.cmdValAddRow.Size(1020,390)
+Gui.F_Hist_Vals.cmdValAddRow.Position(285,165)
+Gui.F_Hist_Vals.cmdValAddRow.Caption("Add Row")
+Gui.F_Hist_Vals.cmdValAddRow.Event(Click,cmdValAddRow_Click)
+Gui.F_Hist_Vals.cmdValDelete.Create(Button)
+Gui.F_Hist_Vals.cmdValDelete.Size(1020,390)
+Gui.F_Hist_Vals.cmdValDelete.Position(1470,165)
+Gui.F_Hist_Vals.cmdValDelete.Caption("Delete")
+Gui.F_Hist_Vals.cmdValDelete.Event(Click,cmdValDelete_Click)
+Gui.F_Hist_Vals.cmdValDelete.Enabled(False)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.sActiveControl.Declare
+V.Global.iDataTableRow.Declare
+V.Global.sEmployee.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.CaseAny(15360,15370,15380)
+		'Script button hooks on Employee Master
+		F.Intrinsic.Control.If(V.Passed.000003.Trim,=,"")
+			V.Global.sEmployee.Set("")
+			Gui.F_History.cmdHistAdd.Enabled(False)
+			Gui.F_History.txtEmployeeID.Enabled(True)
+			Gui.F_History.cmdEmployeeBRW.Enabled(True)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.LPad(V.Passed.000003.Trim,"0",5,V.Global.sEmployee)
+			Gui.F_History.cmdHistAdd.Enabled(True)
+			Gui.F_History.txtEmployeeID.Enabled(False)
+			Gui.F_History.cmdEmployeeBRW.Enabled(False)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.CallSub(OpenStandardView,"Employee",V.Global.sEmployee)
+	F.Intrinsic.Control.CaseElse
+		'Menu Item
+		F.Intrinsic.Control.If(V.Caller.Switches,=,"M")
+			'Maintenance Menu Item
+			Gui.F_Hist_Maint..ContextMenuCreate("ctxMaint")
+			Gui.F_Hist_Maint..ContextMenuAddItem("ctxMaint","Delete",0,"Delete")
+			Gui.F_Hist_Maint..ContextMenuSetItemEventHandler("ctxMaint","Delete",DeleteMaintEntry)
+			Gui.F_Hist_Maint.gsgcMaint.ContextMenuAttach("ctxMaint")
+			F.Intrinsic.Control.CallSub(OpenHistoryMaintenance)
+		F.Intrinsic.Control.Else
+			'Standard Menu Item
+			F.Intrinsic.Control.CallSub(OpenStandardView,"Employee","***MENU ITEM***")
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.OpenStandardView.Start
+V.Local.sError.Declare
+V.Local.sSQL.Declare
+V.Local.sEvents.Declare
+V.Local.sEventName.Declare
+V.Local.iCnt.Declare
+V.Local.iCnt2.Declare
+V.Local.sVal.Declare
+V.Local.iVal.Declare
+V.Local.fVal.Declare
+V.Local.dVal.Declare
+V.Local.bVal.Declare
+V.Local.sNumber.Declare
+V.Local.sColumn.Declare
+V.Local.sColumnEdit.Declare
+V.Local.sNewColumn.Declare
+V.Local.sDateFormats.Declare
+V.Local.iVisibleIndex.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_History..ContextMenuCreate("ctxHist")
+Gui.F_History..ContextMenuAddItem("ctxHist","Delete",0,"Delete")
+Gui.F_History..ContextMenuAddItem("ctxHist","Export",0,"Export")
+Gui.F_History..ContextMenuSetItemEventHandler("ctxHist","Delete",DeleteHistEntry)
+Gui.F_History..ContextMenuSetItemEventHandler("ctxHist","Export",ExportHistory)
+Gui.F_History.gsgcHistory.ContextMenuAttach("ctxHist")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Data.DataTable.CreateFromSQL("dtValTypes","con","select * from GCG_5761_EMP_HIST_M;",True)
+V.Local.sSQL.Set("select EMPLOYEE, EVENT_NAME, EVENT_ID, DATE_EVENT, DATE_ACTION, TIME_ACTION")
+F.Intrinsic.Control.For(V.Local.iCnt,1,V.DataTable.dtValTypes.RowCount,1)
+	F.Intrinsic.String.LPad(V.Local.iCnt,"0",2,V.Local.sNumber)
+	F.Intrinsic.String.Build("{0}, VAL_{1}",V.Local.sSQL,V.Local.sNumber,V.Local.sSQL)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.String.Build("{0} from GCG_5761_EMP_HIST",V.Local.sSQL,V.Local.sSQL)
+F.Intrinsic.Control.If(V.Args.Employee,!=,"","and",V.Args.Employee,!=,"***MENU ITEM***")
+	F.Intrinsic.String.Build("{0} where EMPLOYEE = '{1}'",V.Local.sSQL,V.Args.Employee,V.Local.sSQL)
+	V.Global.sEmployee.Set(V.Args.Employee)
+	Gui.F_History.cmdHistAdd.Enabled(True)
+F.Intrinsic.Control.Else
+	Gui.F_History.txtEmployeeID.Enabled(True)
+	Gui.F_History.cmdEmployeeBRW.Enabled(True)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Build("{0} order by EMPLOYEE, DATE_EVENT, EVENT_NAME;",V.Local.sSQL,V.Local.sSQL)
+
+F.Data.DataTable.CreateFromSQL("dtEmpHist","con",V.Local.sSQL,True)
+F.Data.Dictionary.CreateFromSQL("dictTerm","con","select EMPLOYEE, if(DATE_TERMINATION = '1900-01-01', cast(0 as bit), cast(1 as bit)) from V_EMPLOYEE_MSTR;")
+F.Data.Dictionary.CreateFromSQL("dictEmployees","con","select EMPLOYEE, rtrim(NAME) from V_EMPLOYEE_MSTR")
+F.Data.DataTable.CreateFromSQL("dtEvents","con","select EVENT_TYPE from GCG_5761_EVENT_TYPES order by EVENT_TYPE;",False)
+F.ODBC.Connection!con.Close
+F.Data.DataTable.ColumnToString("dtEvents","EVENT_TYPE",V.Local.sEvents)
+F.Data.DataTable.Close("dtEvents")
+F.Intrinsic.String.Replace(V.Local.sEvents,"*.*","#$#",V.Local.sEvents)
+F.Intrinsic.String.Replace(V.Local.sEvents,"*!*","#$#",V.Local.sEvents)
+
+F.Data.Dictionary.SetDefaultReturn("dictEmployees","")
+F.Data.DataTable.AddColumn("dtEmpHist","NAME","String")
+F.Data.DataTable.FillFromDictionary("dtEmpHist","dictEmployees","EMPLOYEE","NAME")
+
+F.Data.Dictionary.SetDefaultReturn("dictTerm",False)
+F.Data.DataTable.AddColumn("dtEmpHist","TERMINATED","Boolean")
+F.Data.DataTable.FillFromDictionary("dtEmpHist","dictTerm","EMPLOYEE","TERMINATED")
+
+F.Data.DataTable.SetPK("dtEmpHist","EVENT_ID")
+
+F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF.Not)
+	F.Intrinsic.String.Split(V.Local.sEvents,"#$#",V.Local.sEvents)
+	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sEvents.UBound,1)
+		F.Intrinsic.String.Split(V.Local.sEvents(V.Local.iCnt),"*!*",V.Local.sEventName)
+		Gui.F_New_Hist.ddlEventType.AddItem(V.Local.sEventName(0).Trim)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.EndIf
+
+'Loop through datatable and validate the value types
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtValTypes.RowCount--,1)
+	F.Intrinsic.Math.Add(V.Local.iCnt,1,V.Local.sNumber)
+	F.Intrinsic.String.LPad(V.Local.sNumber,"0",2,V.Local.sNumber)
+	F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sColumn)
+	V.Local.sColumnEdit.RedimPreserve(0,V.Local.iCnt)
+	F.Intrinsic.Control.SelectCase(V.DataTable.dtValTypes(V.Local.iCnt).VAL_TYPE!FieldVal)
+		F.Intrinsic.Control.Case("Drop Down List")
+			'Drop Down List but it's also text
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"String")
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_01!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_01!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_02!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_02!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_03!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_03!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_04!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_04!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_05!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_05!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_06!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_06!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_07!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_07!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_08!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_08!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_09!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_09!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_10!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_10!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_11!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_11!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_12!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_12!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_13!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_13!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_14!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_14!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_15!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_15!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_16!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_16!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_17!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_17!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_18!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_18!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_19!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_19!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).DDL_20!FieldValTrim,!=,"")
+				F.Intrinsic.String.Build("{0}{1}*!*",V.Local.sColumnEdit(V.Local.iCnt),V.DataTable.dtValTypes(V.Local.iCnt).DDL_20!FieldValTrim,V.Local.sColumnEdit(V.Local.iCnt))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.Local.sColumnEdit(V.Local.iCnt),!=,"")
+				F.Intrinsic.String.LimitSplit(V.Local.sColumnEdit(V.Local.iCnt),1,V.Local.sNewColumn)
+				F.Intrinsic.Variable.RemoveArrayElementByOrdinal(V.Local.sNewColumn,V.Local.sNewColumn.UBound,V.Local.sNewColumn)
+				F.Intrinsic.Variable.RemoveArrayElementByOrdinal(V.Local.sNewColumn,V.Local.sNewColumn.UBound,V.Local.sNewColumn)
+				F.Intrinsic.Variable.RemoveArrayElementByOrdinal(V.Local.sNewColumn,V.Local.sNewColumn.UBound,V.Local.sNewColumn)
+				F.Intrinsic.String.Join(V.Local.sNewColumn,"",V.Local.sColumnEdit(V.Local.iCnt))
+				V.Local.sNewColumn.Redim(0,0)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Case("Text")
+			'Text
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"String","")
+		F.Intrinsic.Control.Case("Integer")
+			'Integer
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"Long",0)
+		F.Intrinsic.Control.Case("Number")
+			'Number
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"Float",0)
+		F.Intrinsic.Control.Case("Date")
+			'Date
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"Date",V.Ambient.Date)
+		F.Intrinsic.Control.Case("Checkbox")
+			'Checkbox
+			F.Data.DataTable.AddColumn("dtEmpHist",V.Local.sColumn,"Boolean",False)
+	F.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Data.DataTable.AddColumn("dtEmpHist","SAVED","Long")
+F.Data.DataTable.SetValue("dtEmpHist",-1,"SAVED",1)
+F.Data.DataTable.AcceptChanges("dtEmpHist")
+
+Gui.F_History.gsgcHistory.AddGridviewFromDatatable("gvHistory","dtEmpHist")
+
+Gui.F_History.gsgcHistory.SetGridviewProperty("gvHistory","OptionsFindAlwaysVisible",True)
+Gui.F_History.gsgcHistory.SetGridviewProperty("gvHistory","OptionsViewColumnAutoWidth",False)
+
+V.Local.iVisibleIndex.Set(-1)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EMPLOYEE","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","VisibleIndex",V.Local.iVisibleIndex.++)
+
+'Loop through ValTypes again to set gui stuff
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtValTypes.RowCount--,1)
+	F.Intrinsic.Math.Add(V.Local.iCnt,1,V.Local.sNumber)
+	F.Intrinsic.String.LPad(V.Local.sNumber,"0",2,V.Local.sNumber)
+	F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sNewColumn)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"VisibleIndex",V.Local.iVisibleIndex.++)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"Caption",V.DataTable.dtValTypes(V.Local.iCnt).HIST_REC_TYPE!FieldValTrim)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"MinWidth",50)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"Width",150)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"AllowEdit",True)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sNewColumn,"ReadOnly",False)
+	F.Intrinsic.Control.If(V.DataTable.dtValTypes(V.Local.iCnt).VAL_TYPE!FieldVal,=,"Drop Down List")
+		Gui.F_History.gsgcHistory.ColumnEdit("gvHistory",V.Local.sNewColumn,"DropDownList",V.Local.sColumnEdit(V.Local.iCnt))
+	F.Intrinsic.Control.ElseIf(V.DataTable.dtValTypes(V.Local.iCnt).VAL_TYPE!FieldVal,=,"Date")
+		F.Intrinsic.Variable.AddToArray(V.Local.sDateFormats,V.Local.sNewColumn)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'Loop through history and convert values to new types
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtEmpHist.RowCount--,1)
+	F.Intrinsic.Control.For(V.Local.iCnt2,0,V.DataTable.dtValTypes.RowCount--,1)
+		F.Intrinsic.Math.Add(V.Local.iCnt2,1,V.Local.sNumber)
+		F.Intrinsic.String.LPad(V.Local.sNumber,"0",2,V.Local.sNumber)
+		F.Intrinsic.String.Build("VAL_{0}",V.Local.sNumber,V.Local.sColumn)
+		F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sNewColumn)
+		F.Intrinsic.Control.SelectCase(V.DataTable.dtValTypes(V.Local.iCnt2).VAL_TYPE!FieldVal)
+			F.Intrinsic.Control.CaseAny("Drop Down List","Text")
+				'Drop Down List/Text
+				F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal,=,V.Ambient.DBNull)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Ambient.DBNull)
+				F.Intrinsic.Control.Else
+					V.Local.sVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Local.sVal)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case("Integer")
+				'Integer
+				F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal,=,V.Ambient.DBNull)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Ambient.DBNull)
+				F.Intrinsic.Control.Else
+					V.Local.iVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Local.iVal)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case("Number")
+				'Number
+				F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal,=,V.Ambient.DBNull)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Ambient.DBNull)
+				F.Intrinsic.Control.Else
+					V.Local.fVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Local.fVal)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case("Date")
+				'Date
+				F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal,=,V.Ambient.DBNull)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Ambient.DBNull)
+				F.Intrinsic.Control.Else
+					V.Local.sVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal)
+					F.Intrinsic.Control.If(V.Local.sVal.IsDate,=,False)
+						V.Local.sVal.Set("1/1/1900")
+					F.Intrinsic.Control.EndIf
+					V.Local.dVal.Set(V.Local.sVal)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Local.dVal)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case("Checkbox")
+				'Checkbox
+				F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal,=,V.Ambient.DBNull)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Ambient.DBNull)
+				F.Intrinsic.Control.Else
+					V.Local.bVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sColumn]!FieldVal)
+					F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNewColumn,V.Local.bVal)
+				F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Next(V.Local.iCnt2)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_ACTION","Visible",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TIME_ACTION","Visible",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","SAVED","Visible",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_ID","Visible",False)
+F.Intrinsic.Control.For(V.Local.iCnt,1,V.DataTable.dtValTypes.RowCount,1)
+	F.Intrinsic.String.LPad(V.Local.iCnt,"0",2,V.Local.sNumber)
+	F.Intrinsic.String.Build("VAL_{0}",V.Local.sNumber,V.Local.sColumn)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sColumn,"Visible",False)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EMPLOYEE","Caption","Employee No.")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","Caption","Employee")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","Caption","Date")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","Caption","Type")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","Caption","Terminated")
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EMPLOYEE","MinWidth",50)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","MinWidth",50)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","MinWidth",50)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","MinWidth",50)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","MinWidth",50)
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EMPLOYEE","Width",80)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","Width",150)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","Width",70)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","Width",100)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","Width",70)
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EMPLOYEE","CellHAlignment","Near")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","CellHAlignment","Near")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","CellHAlignment","Center")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","CellHAlignment","Near")
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","CellHAlignment","Center")
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","AllowEdit",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","NAME","ReadOnly",True)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","AllowEdit",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","ReadOnly",True)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","AllowEdit",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","EVENT_NAME","ReadOnly",True)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","AllowEdit",False)
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","TERMINATED","ReadOnly",True)
+
+Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory","DATE_EVENT","DisplayCustomDatetime","d")
+F.Intrinsic.Control.For(V.Local.iCnt,1,V.Local.sDateFormats.UBound,1)
+	Gui.F_History.gsgcHistory.SetColumnProperty("gvHistory",V.Local.sDateFormats(V.Local.iCnt),"DisplayCustomDatetime","d")
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+Gui.F_History.gsgcHistory.AddStyleFormatCondition("gvHistory","SAVED","NewRows","equal",0)
+Gui.F_History.gsgcHistory.SetStyleFormatConditionProperty("gvHistory","SAVED","NewRows","BackColor","LightGreen")
+Gui.F_History.gsgcHistory.SetStyleFormatConditionProperty("gvHistory","SAVED","NewRows","ApplyToRow",True)
+
+Gui.F_History.gsgcHistory.MainView("gvHistory")
+F.Intrinsic.Control.CallSub(DeserializeHistory)
+
+Gui.F_History..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenStandardView.End
+
+Program.Sub.OpenHistoryMaintenance.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+'Get Maintenance data
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Data.DataTable.CreateFromSQL("dtHistEvents","con","select EVENT_TYPE from GCG_5761_EVENT_TYPES;",True)
+F.Data.DataTable.CreateFromSQL("dtHistVals","con","select HIST_REC_TYPE, VAL_TYPE, DDL_01, DDL_02, DDL_03, DDL_04, DDL_05, DDL_06, DDL_07, DDL_08, DDL_09, DDL_10, DDL_11, DDL_12, DDL_13, DDL_14, DDL_15, DDL_16, DDL_17, DDL_18, DDL_19, DDL_20 from GCG_5761_EMP_HIST_M;",True)
+F.ODBC.Connection!con.Close
+
+Gui.F_Hist_Maint.gsgcMaint.AddGridviewFromDatatable("gvEvents","dtHistEvents")
+
+Gui.F_Hist_Maint.gsgcMaint.SetGridviewProperty("gvEvents","Editable",True)
+Gui.F_Hist_Maint.gsgcMaint.SetGridviewProperty("gvEvents","ReadOnly",False)
+Gui.F_Hist_Maint.gsgcMaint.SetGridviewProperty("gvEvents","OptionsViewColumnAutoWidth",False)
+Gui.F_Hist_Maint.gsgcMaint.SetGridviewProperty("gvEvents","AllowSort",False)
+Gui.F_Hist_Maint.gsgcMaint.SetGridviewProperty("gvEvents","AllowFilter",False)
+
+Gui.F_Hist_Maint.gsgcMaint.SetColumnProperty("gvEvents","EVENT_TYPE","Caption","Event")
+Gui.F_Hist_Maint.gsgcMaint.SetColumnProperty("gvEvents","EVENT_TYPE","MinWidth",10)
+Gui.F_Hist_Maint.gsgcMaint.SetColumnProperty("gvEvents","EVENT_TYPE","Width",100)
+
+Gui.F_Hist_Maint.gsgcMaint.MainView("gvEvents")
+
+Gui.F_Hist_Vals.gsgcValues.AddGridviewFromDatatable("gvValues","dtHistVals")
+
+Gui.F_Hist_Vals.gsgcValues.SetGridviewProperty("gvValues","Editable",True)
+Gui.F_Hist_Vals.gsgcValues.SetGridviewProperty("gvValues","ReadOnly",False)
+Gui.F_Hist_Vals.gsgcValues.SetGridviewProperty("gvValues","OptionsViewColumnAutoWidth",False)
+Gui.F_Hist_Vals.gsgcValues.SetGridviewProperty("gvValues","AllowSort",False)
+Gui.F_Hist_Vals.gsgcValues.SetGridviewProperty("gvValues","AllowFilter",False)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","HIST_REC_TYPE","Caption","Value Header")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","HIST_REC_TYPE","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","HIST_REC_TYPE","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","VAL_TYPE","Caption","Value Type")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","VAL_TYPE","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","VAL_TYPE","Width",100)
+Gui.F_Hist_Vals.gsgcValues.ColumnEdit("gvValues","VAL_TYPE","DropDownList","Text*!*Integer*!*Number*!*Date*!*Checkbox*!*Drop Down List")
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_01","Caption","DDL Val 1")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_01","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_01","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_02","Caption","DDL Val 2")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_02","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_02","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_03","Caption","DDL Val 3")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_03","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_03","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_04","Caption","DDL Val 4")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_04","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_04","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_05","Caption","DDL Val 5")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_05","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_05","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_06","Caption","DDL Val 6")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_06","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_06","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_07","Caption","DDL Val 7")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_07","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_07","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_08","Caption","DDL Val 8")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_08","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_08","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_09","Caption","DDL Val 9")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_09","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_09","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_10","Caption","DDL Val 10")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_10","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_10","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_11","Caption","DDL Val 11")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_11","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_11","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_12","Caption","DDL Val 12")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_12","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_12","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_13","Caption","DDL Val 13")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_13","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_13","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_14","Caption","DDL Val 14")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_14","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_14","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_15","Caption","DDL Val 15")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_15","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_15","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_16","Caption","DDL Val 16")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_16","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_16","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_17","Caption","DDL Val 17")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_17","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_17","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_18","Caption","DDL Val 18")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_18","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_18","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_19","Caption","DDL Val 19")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_19","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_19","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_20","Caption","DDL Val 20")
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_20","MinWidth",10)
+Gui.F_Hist_Vals.gsgcValues.SetColumnProperty("gvValues","DDL_20","Width",100)
+
+Gui.F_Hist_Vals.gsgcValues.MainView("gvValues")
+
+Gui.F_Hist_Maint..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenHistoryMaintenance.End
+
+Program.Sub.F_Hist_Maint_UnLoad.Start
+F.Intrinsic.Control.End
+Program.Sub.F_Hist_Maint_UnLoad.End
+
+Program.Sub.cmdMaintSave_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataView.Create("dtHistEvents","dvSave",22)
+F.Data.DataView.ToDataTable("dtHistEvents","dvSave","dtSave")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.Execute("delete from GCG_5761_EVENT_TYPES;")
+F.Data.DataTable.SaveToDB("dtSave","con","GCG_5761_EVENT_TYPES","EVENT_TYPE",128)
+F.ODBC.Connection!con.Close
+
+F.Data.DataView.Close("dtHistEvents","dvSave")
+F.Data.DataTable.Close("dtSave")
+
+F.Data.DataView.Create("dtHistVals","dvSave",22)
+F.Data.DataView.ToDataTable("dtHistVals","dvSave","dtSave")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.Execute("delete from GCG_5761_EMP_HIST_M;")
+F.Data.DataTable.SaveToDB("dtSave","con","GCG_5761_EMP_HIST_M","HIST_REC_TYPE",128)
+F.ODBC.Connection!con.Close
+
+F.Data.DataView.Close("dtHistVals","dvSave")
+F.Data.DataTable.Close("dtSave")
+
+F.Intrinsic.UI.Msgbox("Saved Events and Values!")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintSave_Click.End
+
+Program.Sub.cmdMaintAdd_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.AddRow("dtHistEvents","EVENT_TYPE","")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintAdd_Click.End
+
+Program.Sub.DeleteMaintEntry.Start
+V.Local.sError.Declare
+V.Local.sRows.Declare
+V.Local.iC.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_Hist_Maint.gsgcMaint.GetSelectedRows("gvEvents",V.Local.sRows)
+
+F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+F.Intrinsic.Control.For(V.Local.iC,V.Local.sRows.UBound,0,-1)
+	F.Data.DataTable.DeleteRow("dtHistEvents",V.Local.sRows(V.Local.iC))
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.Data.DataTable.AcceptChanges("dtHistEvents")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.DeleteMaintEntry.End
+
+Program.Sub.cmdMaintReset_Click.Start
+V.Local.sError.Declare
+V.Local.sRows.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.Close("dtHistEvents")
+F.Data.DataTable.Close("dtHistVals")
+
+Gui.F_Hist_Maint..Visible(False)
+
+F.Intrinsic.Control.CallSub(OpenHistoryMaintenance)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintReset_Click.End
+
+Program.Sub.ddlEventType_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+'F.Intrinsic.Control.If(V.Global.sActiveControl,!=,"")
+'	Gui.F_New_Hist.[V.Global.sActiveControl].Visible(False)
+'F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.SelectCase(V.Dictionary.dictEvents![V.Screen.F_New_Hist!ddlEventType.Text])
+'	F.Intrinsic.Control.Case("Text")
+'		'Text
+'		Gui.F_New_Hist.txtTextVal.Text("")
+'		Gui.F_New_Hist.txtTextVal.Visible(True)
+'		V.Global.sActiveControl.Set("txtTextVal")
+'	F.Intrinsic.Control.Case("Integer")
+'		'Integer
+'		Gui.F_New_Hist.txtIntegerVal.Text("0")
+'		Gui.F_New_Hist.txtIntegerVal.Visible(True)
+'		V.Global.sActiveControl.Set("txtIntegerVal")
+'	F.Intrinsic.Control.Case("Number")
+'		'Number
+'		Gui.F_New_Hist.txtFloatVal.Text("0")
+'		Gui.F_New_Hist.txtFloatVal.Visible(True)
+'		V.Global.sActiveControl.Set("txtFloatVal")
+'	F.Intrinsic.Control.Case("Date")
+'		'Date
+'		Gui.F_New_Hist.dtpDateVal.Value(V.Ambient.Date)
+'		Gui.F_New_Hist.dtpDateVal.Visible(True)
+'		V.Global.sActiveControl.Set("dtpDateVal")
+'	F.Intrinsic.Control.Case("Checkbox")
+'		'Checkbox
+'		Gui.F_New_Hist.chkBooleanVal.Value(0)
+'		Gui.F_New_Hist.chkBooleanVal.Visible(True)
+'		V.Global.sActiveControl.Set("chkBooleanVal")
+'F.Intrinsic.Control.EndSelect
+
+Gui.F_New_Hist.cmdNewUpdate.Enabled(True)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.ddlEventType_Click.End
+
+Program.Sub.F_New_Hist_UnLoad.Start
+'F.Intrinsic.Control.If(V.Global.sActiveControl,!=,"")
+'	Gui.F_New_Hist.[V.Global.sActiveControl].Visible(False)
+'	V.Global.sActiveControl.Set("")
+'F.Intrinsic.Control.EndIf
+
+Gui.F_New_Hist..Visible(False)
+Gui.F_New_Hist..Enabled(True)
+Gui.F_New_Hist.ddlEventType.ListIndex(-1)
+Gui.F_New_Hist.dtpEventDate.Value(V.Ambient.Date)
+Gui.F_New_Hist.cmdNewUpdate.Enabled(False)
+Gui.F_History..Enabled(True)
+Gui.F_History..SetFocus
+Program.Sub.F_New_Hist_UnLoad.End
+
+Program.Sub.cmdNewUpdate_Click.Start
+V.Local.sError.Declare
+V.Local.sFilter.Declare
+V.Local.sNumber.Declare
+V.Local.iID.Declare
+V.Local.iCnt.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_New_Hist..Enabled(False)
+'Copy over data from most recent event for employee
+F.Intrinsic.Control.If(V.Global.sEmployee,=,"")
+	F.Intrinsic.String.Build("EMPLOYEE = '{0}' and SAVED = 1",V.Screen.F_History!txtEmployeeID.Text,V.Local.sFilter)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("EMPLOYEE = '{0}' and SAVED = 1",V.Global.sEmployee,V.Local.sFilter)
+F.Intrinsic.Control.EndIf
+F.Data.DataView.Create("dtEmpHist","dvLastEvent",22,V.Local.sFilter,"DATE_EVENT desc, DATE_ACTION desc, TIME_ACTION desc")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.ExecuteAndReturn("select top 1 EVENT_ID from GCG_5761_EMP_HIST order by EVENT_ID desc;",V.Local.iID)
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+	V.Local.iID.Set(0)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Math.Add(V.Local.iID,1,V.Local.iID)
+
+F.Intrinsic.Control.If(V.Global.sEmployee,=,"")
+	F.Data.DataTable.AddRow("dtEmpHist","EMPLOYEE",V.Screen.F_History!txtEmployeeID.Text,"EVENT_ID",V.Local.iID,"NAME",V.Dictionary.dictEmployees![V.Screen.F_History!txtEmployeeID.Text],"TERMINATED",V.Dictionary.dictTerm![V.Screen.F_History!txtEmployeeID.Text])
+F.Intrinsic.Control.Else
+	F.Data.DataTable.AddRow("dtEmpHist","EMPLOYEE",V.Global.sEmployee,"EVENT_ID",V.Local.iID,"NAME",V.Dictionary.dictEmployees![V.Global.sEmployee],"TERMINATED",V.Dictionary.dictTerm![V.Global.sEmployee])
+F.Intrinsic.Control.EndIf
+F.Data.DataTable.SetValue("dtEmpHist",V.DataTable.dtEmpHist.RowCount--,"EVENT_NAME",V.Screen.F_New_Hist!ddlEventType.Text,"DATE_EVENT",V.Screen.F_New_Hist!dtpEventDate.Value,"DATE_ACTION",V.Ambient.Date,"TIME_ACTION",V.Ambient.Time,"SAVED",0)
+F.Intrinsic.Control.If(V.DataView.dtEmpHist!dvLastEvent.RowCount,>,0)
+	F.Intrinsic.Control.For(V.Local.iCnt,1,V.DataTable.dtValTypes.RowCount,1)
+		F.Intrinsic.String.LPad(V.Local.iCnt,"0",2,V.Local.sNumber)
+		F.Intrinsic.String.Build("VAL_{0}",V.Local.sNumber,V.Local.sNumber)
+		F.Data.DataTable.SetValue("dtEmpHist",V.DataTable.dtEmpHist.RowCount--,V.Local.sNumber,V.DataView.dtEmpHist!dvLastEvent(0).[V.Local.sNumber]!FieldVal)
+		F.Intrinsic.String.LPad(V.Local.iCnt,"0",2,V.Local.sNumber)
+		F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sNumber)
+		F.Data.DataTable.SetValue("dtEmpHist",V.DataTable.dtEmpHist.RowCount--,V.Local.sNumber,V.DataView.dtEmpHist!dvLastEvent(0).[V.Local.sNumber]!FieldVal)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.EndIf
+
+Gui.F_History.gsgcHistory.MainView("gvHistory")
+
+F.Data.DataView.Close("dtEmpHist","dvLastEvent")
+F.Intrinsic.Control.CallSub(cmdSave_Click)
+
+F.Intrinsic.Control.CallSub(F_New_Hist_UnLoad)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdNewUpdate_Click.End
+
+Program.Sub.cmdHistAdd_Click.Start
+Gui.F_History..Enabled(False)
+V.Global.iDataTableRow.Set(-1)
+Gui.F_New_Hist..Show
+Program.Sub.cmdHistAdd_Click.End
+
+Program.Sub.F_History_UnLoad.Start
+F.Intrinsic.Control.CallSub(SerializeHistory)
+F.Intrinsic.Control.End
+Program.Sub.F_History_UnLoad.End
+
+Program.Sub.gsgcHistory_RowClick.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Args.Clicks,!=,2,"or",V.Args.Button.UCase,!=,"LEFT")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Gui.F_History..Enabled(False)
+
+'Gui.F_New_Hist.ddlEventType.Text(V.DataTable.dtEmpHist(V.Args.RowIndex).EVENT_NAME!FieldVal)
+'Gui.F_New_Hist.dtpEventDate.Value(V.DataTable.dtEmpHist(V.Args.RowIndex).DATE_EVENT!FieldVal)
+'F.Intrinsic.Control.SelectCase(V.Dictionary.dictEvents![V.DataTable.dtEmpHist(V.Args.RowIndex).EVENT_NAME!FieldVal])
+'	F.Intrinsic.Control.Case("Text")
+'		'Text
+'		Gui.F_New_Hist.txtTextVal.Visible(True)
+'		Gui.F_New_Hist.txtTextVal.Text(V.DataTable.dtEmpHist(V.Args.RowIndex).VAL_TEXT!FieldVal)
+'		V.Global.sActiveControl.Set("txtTextVal")
+'	F.Intrinsic.Control.Case("Integer")
+'		'Integer
+'		Gui.F_New_Hist.txtIntegerVal.Visible(True)
+'		Gui.F_New_Hist.txtIntegerVal.Text(V.DataTable.dtEmpHist(V.Args.RowIndex).VAL_INTEGER!FieldVal)
+'		V.Global.sActiveControl.Set("txtIntegerVal")
+'	F.Intrinsic.Control.Case("Number")
+'		'Number
+'		Gui.F_New_Hist.txtFloatVal.Visible(True)
+'		Gui.F_New_Hist.txtFloatVal.Text(V.DataTable.dtEmpHist(V.Args.RowIndex).VAL_FLOAT!FieldVal)
+'		V.Global.sActiveControl.Set("txtFloatVal")
+'	F.Intrinsic.Control.Case("Date")
+'		'Date
+'		Gui.F_New_Hist.dtpDateVal.Visible(True)
+'		Gui.F_New_Hist.dtpDateVal.Value(V.DataTable.dtEmpHist(V.Args.RowIndex).VAL_DATE!FieldVal)
+'		V.Global.sActiveControl.Set("dtpDateVal")
+'	F.Intrinsic.Control.Case("Checkbox")
+'		'Checkbox
+'		Gui.F_New_Hist.chkBooleanVal.Visible(True)
+'		Gui.F_New_Hist.chkBooleanVal.Value(V.DataTable.dtEmpHist(V.Args.RowIndex).VAL_BOOLEAN!FieldVal)
+'		V.Global.sActiveControl.Set("chkBooleanVal")
+'F.Intrinsic.Control.EndSelect
+
+'V.Global.iDataTableRow.Set(V.Args.RowIndex)
+'Gui.F_New_Hist.ddlEventType.Enabled(False)
+
+'Gui.F_New_Hist..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcHistory_RowClick.End
+
+Program.Sub.DeleteHistEntry.Start
+V.Local.sError.Declare
+V.Local.sRows.Declare
+V.Local.iRow.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_History.gsgcHistory.GetSelectedRows("gvHistory",V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,!=,"")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	
+	F.Intrinsic.Control.For(V.Local.iRow,V.Local.sRows.UBound,0,-1)
+		F.Data.DataTable.DeleteRow("dtEmpHist",V.Local.sRows(V.Local.iRow))
+	F.Intrinsic.Control.Next(V.Local.iRow)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.DeleteHistEntry.End
+
+Program.Sub.cmdSave_Click.Start
+V.Local.sError.Declare
+V.Local.sNumber.Declare
+V.Local.sSQL.Declare
+V.Local.sVal.Declare
+V.Local.iCnt.Declare
+V.Local.iVal.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_History..Enabled(False)
+
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtEmpHist.RowCount--,1)
+	F.Intrinsic.Control.If(V.DataTable.dtEmpHist(V.Local.iCnt).RowState,!=,8)
+		F.Intrinsic.Control.For(V.Local.iVal,1,V.DataTable.dtValTypes.RowCount,1)
+			F.Intrinsic.String.LPad(V.Local.iVal,"0",2,V.Local.sNumber)
+			F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sNumber)
+'				F.Intrinsic.String.LPad(V.Local.iVal,"0",2,V.Local.sNumber)
+'				F.Intrinsic.String.Build("VAL_{0}",V.Local.sNumber,V.Local.sNumber)
+'				F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNumber,V.Ambient.DBNull)
+			V.Local.sVal.Set(V.DataTable.dtEmpHist(V.Local.iCnt).[V.Local.sNumber]!FieldVal)
+			F.Intrinsic.String.LPad(V.Local.iVal,"0",2,V.Local.sNumber)
+			F.Intrinsic.String.Build("VAL_{0}",V.Local.sNumber,V.Local.sNumber)
+			F.Data.DataTable.SetValue("dtEmpHist",V.Local.iCnt,V.Local.sNumber,V.Local.sVal)
+		F.Intrinsic.Control.Next(V.Local.iVal)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Data.DataTable.Clone("dtEmpHist","dtSave",False)
+F.Data.DataTable.RemoveColumn("dtSave","SAVED")
+
+F.Intrinsic.Control.For(V.Local.iCnt,1,V.DataTable.dtValTypes.RowCount,1)
+	F.Intrinsic.String.LPad(V.Local.iCnt,"0",2,V.Local.sNumber)
+	F.Intrinsic.String.Build("VAL_T_{0}",V.Local.sNumber,V.Local.sNumber)
+	F.Data.DataTable.RemoveColumn("dtSave",V.Local.sNumber)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Data.DataTable.RemoveColumn("dtSave","NAME")
+F.Data.DataTable.RemoveColumn("dtSave","TERMINATED")
+
+F.Data.DataTable.Merge("dtEmpHist","dtSave",True,2)
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Data.DataTable.SaveToDB("dtSave","con","GCG_5761_EMP_HIST","EVENT_ID",7)
+F.ODBC.Connection!con.Close
+
+F.Data.DataTable.Close("dtSave")
+
+F.Data.DataTable.SetValue("dtEmpHist",-1,"SAVED",1)
+F.Data.DataTable.AcceptChanges("dtEmpHist")
+
+Gui.F_History..Enabled(True)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.ExportHistory.Start
+V.Local.sError.Declare
+V.Local.sForm.Declare(String, "F_History")
+V.Local.sControl.Declare(String, "gsgcHistory")
+V.Local.sFileExport.Declare
+V.Local.sMsg.Declare
+V.Local.sDate.Declare
+V.Local.sTime.Declare
+V.Local.bExcel.Declare
+V.Local.bFileLocked.Declare
+F.Intrinsic.Control.Try
+
+'Arc Number - 5761
+F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+F.Intrinsic.String.DateString(V.Ambient.Date,V.Local.sDate)
+F.Intrinsic.String.TimeString(V.Ambient.Time,V.Local.sTime)
+F.Intrinsic.Control.If(V.Local.bExcel)
+	F.Intrinsic.String.Build("{0}\GCG_5761_{1}_Export_{2}_{3}.xlsx",V.Caller.LocalGSSTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File : {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0}\GCG_5761_{1}_Export_{2}_{3}.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.ExportHistory.End
+
+Program.Sub.cmdEmployeeBRW_Click.Start
+V.Local.sError.Declare
+V.Local.sRet.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.UI.Browser(51,,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsNotCancel)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_History.txtEmployeeID.Text(V.Local.sRet(0))
+	Gui.F_History.cmdHistAdd.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdEmployeeBRW_Click.End
+
+Program.Sub.txtEmployeeID_Change.Start
+V.Local.sError.Declare
+V.Local.sSQL.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.String.Build("select 1 from V_EMPLOYEE_MSTR where EMPLOYEE = '{0}';",V.Screen.F_History!txtEmployeeID.Text,V.Local.sSQL)
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+	Gui.F_History.cmdHistAdd.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.F_History.cmdHistAdd.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEmployeeID_Change.End
+
+Program.Sub.cmdValues_Click.Start
+Gui.F_Hist_Maint..Enabled(False)
+Gui.F_Hist_Vals..Show
+Program.Sub.cmdValues_Click.End
+
+Program.Sub.F_Hist_Vals_UnLoad.Start
+Gui.F_Hist_Vals..Visible(False)
+Gui.F_Hist_Maint..Enabled(True)
+Gui.F_Hist_Maint..SetFocus
+Program.Sub.F_Hist_Vals_UnLoad.End
+
+Program.Sub.gsgcValues_CellValueChanged.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.SelectCase(V.Args.Column.UCase)
+	F.Intrinsic.Control.CaseAny("DDL_01","DDL_02","DDL_03","DDL_04","DDL_05","DDL_06","DDL_07","DDL_08","DDL_09","DDL_10","DDL_11","DDL_12","DDL_13","DDL_14","DDL_15","DDL_16","DDL_17","DDL_18","DDL_19","DDL_20")
+		F.Intrinsic.Control.If(V.DataTable.dtHistVals(V.Args.RowIndex).VAL_TYPE!FieldVal,!=,"Drop Down List")
+			F.Data.DataTable.SetValue("dtHistVals",V.Args.RowIndex,V.Args.Column,"")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Case("VAL_TYPE")
+		'Check if they switched off Drop Down List
+		F.Intrinsic.Control.If(V.DataTable.dtHistVals(V.Args.RowIndex).VAL_TYPE!FieldVal,!=,"DropDownList")
+			F.Data.DataTable.SetValue("dtHistVals",V.Args.RowIndex,"DDL_01","","DDL_02","","DDL_03","","DDL_04","","DDL_05","","DDL_06","","DDL_07","","DDL_08","","DDL_09","","DDL_10","","DDL_11","","DDL_12","","DDL_13","","DDL_14","","DDL_15","","DDL_16","","DDL_17","","DDL_18","","DDL_19","","DDL_20","")
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcValues_CellValueChanged.End
+
+Program.Sub.cmdValAddRow_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.AddRow("dtHistVals","VAL_TYPE","Text")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdValAddRow_Click.End
+
+Program.Sub.cmdValDelete_Click.Start
+V.Local.sError.Declare
+V.Local.sRows.Declare
+V.Local.iRow.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_Hist_Vals.gsgcValues.GetSelectedRows("gvValues",V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,!=,"")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	
+	F.Intrinsic.Control.For(V.Local.iRow,V.Local.sRows.UBound,0,-1)
+		F.Data.DataTable.DeleteRow("dtHistVals",V.Local.sRows(V.Local.iRow))
+	F.Intrinsic.Control.Next(V.Local.iRow)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdValDelete_Click.End
+
+Program.Sub.SerializeHistory.Start
+V.Local.sError.Declare
+V.Local.Serialize.Declare
+F.Intrinsic.Control.Try
+
+'GridView - gvHistory
+Gui.F_History.gsgcHistory.Serialize("gvHistory",V.Local.Serialize)
+F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvHistory",5761,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.Serialize)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.SerializeHistory.End
+
+Program.Sub.DeserializeHistory.Start
+V.Local.sError.Declare
+V.Local.Serialize.Declare
+F.Intrinsic.Control.Try
+
+'GridView - gvHistory
+F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvHistory",5761,1000,6,"",V.Local.Serialize)
+F.Intrinsic.Control.If(V.Local.Serialize.Trim,<>,"")
+	Gui.F_History.gsgcHistory.Deserialize(V.Local.Serialize)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.DeserializeHistory.End
