@@ -1,0 +1,586 @@
+Program.Sub.ScreenSU.Start
+Gui.F_User_Maintenance..Create
+Gui.F_User_Maintenance..Caption("User Field Titles")
+Gui.F_User_Maintenance..Size(15300,2265)
+Gui.F_User_Maintenance..MinX(0)
+Gui.F_User_Maintenance..MinY(0)
+Gui.F_User_Maintenance..Position(0,0)
+Gui.F_User_Maintenance..BackColor(-2147483633)
+Gui.F_User_Maintenance..MousePointer(0)
+Gui.F_User_Maintenance..Event(UnLoad,F_User_Maintenance_UnLoad)
+Gui.F_User_Maintenance.gsgcTitles.Create(GsGridControl)
+Gui.F_User_Maintenance.gsgcTitles.Size(15180,1215)
+Gui.F_User_Maintenance.gsgcTitles.Position(0,0)
+Gui.F_User_Maintenance.gsgcTitles.Anchor(13)
+Gui.F_User_Maintenance.cmdTitleSave.Create(Button)
+Gui.F_User_Maintenance.cmdTitleSave.Size(1020,390)
+Gui.F_User_Maintenance.cmdTitleSave.Position(135,1455)
+Gui.F_User_Maintenance.cmdTitleSave.Caption("Save")
+Gui.F_User_Maintenance.cmdTitleSave.Event(Click,cmdTitleSave_Click)
+Gui.F_User_Maintenance.cmdOpenDDLs.Create(Button)
+Gui.F_User_Maintenance.cmdOpenDDLs.Size(1020,390)
+Gui.F_User_Maintenance.cmdOpenDDLs.Position(1320,1455)
+Gui.F_User_Maintenance.cmdOpenDDLs.Caption("Edit DDL")
+Gui.F_User_Maintenance.cmdOpenDDLs.Event(Click,cmdOpenDDLs_Click)
+Gui.F_User_Fields..Create
+Gui.F_User_Fields..Caption("User Fields")
+Gui.F_User_Fields..Size(15300,3690)
+Gui.F_User_Fields..MinX(0)
+Gui.F_User_Fields..MinY(0)
+Gui.F_User_Fields..Position(0,0)
+Gui.F_User_Fields..BackColor(-2147483633)
+Gui.F_User_Fields..MousePointer(0)
+Gui.F_User_Fields..Event(UnLoad,F_User_Fields_UnLoad)
+Gui.F_User_Fields.gsgcUserFields.Create(GsGridControl)
+Gui.F_User_Fields.gsgcUserFields.Size(15180,2670)
+Gui.F_User_Fields.gsgcUserFields.Position(0,0)
+Gui.F_User_Fields.gsgcUserFields.Anchor(15)
+Gui.F_User_Fields.cmdSave.Create(Button)
+Gui.F_User_Fields.cmdSave.Size(1020,390)
+Gui.F_User_Fields.cmdSave.Position(180,2865)
+Gui.F_User_Fields.cmdSave.Anchor(6)
+Gui.F_User_Fields.cmdSave.Caption("Save")
+Gui.F_User_Fields.cmdSave.Event(Click,cmdSave_Click)
+Gui.F_User_Fields.cmdRepopulate.Create(Button)
+Gui.F_User_Fields.cmdRepopulate.Size(1695,375)
+Gui.F_User_Fields.cmdRepopulate.Position(1350,2865)
+Gui.F_User_Fields.cmdRepopulate.Caption("Repop. Employees")
+Gui.F_User_Fields.cmdRepopulate.Event(Click,cmdRepopulate_Click)
+Gui.F_User_Fields.cmdRepopulate.Anchor(6)
+Gui.F_DropDown..Create
+Gui.F_DropDown..Caption("Drop Down List Settings")
+Gui.F_DropDown..Size(3465,9915)
+Gui.F_DropDown..MinX(0)
+Gui.F_DropDown..MinY(0)
+Gui.F_DropDown..Position(0,0)
+Gui.F_DropDown..BackColor(-2147483633)
+Gui.F_DropDown..MousePointer(0)
+Gui.F_DropDown..Event(UnLoad,F_DropDown_UnLoad)
+Gui.F_DropDown.cmdAddValue.Create(Button)
+Gui.F_DropDown.cmdAddValue.Size(1020,390)
+Gui.F_DropDown.cmdAddValue.Position(225,525)
+Gui.F_DropDown.cmdAddValue.Caption("Add Row")
+Gui.F_DropDown.cmdAddValue.Event(Click,cmdAddValue_Click)
+Gui.F_DropDown.gsgcDDLs.Create(GsGridControl)
+Gui.F_DropDown.gsgcDDLs.Size(3450,7815)
+Gui.F_DropDown.gsgcDDLs.Position(0,1080)
+Gui.F_DropDown.gsgcDDLs.Anchor(15)
+Gui.F_DropDown.cmdDDLSave.Create(Button)
+Gui.F_DropDown.cmdDDLSave.Size(1020,390)
+Gui.F_DropDown.cmdDDLSave.Position(225,9075)
+Gui.F_DropDown.cmdDDLSave.Anchor(6)
+Gui.F_DropDown.cmdDDLSave.Caption("Save")
+Gui.F_DropDown.cmdDDLSave.Event(Click,cmdDDLSave_Click)
+Gui.F_DropDown.ddlUserFields.Create(DropDownList)
+Gui.F_DropDown.ddlUserFields.Size(1575,330)
+Gui.F_DropDown.ddlUserFields.Position(1485,555)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sError.Declare
+V.Local.sEmployee.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.SelectCase(V.Caller.Switches)
+	F.Intrinsic.Control.Case("M")
+		'Called from Menu Item
+		F.Intrinsic.Control.CallSub(EditUserFieldTitles)
+	F.Intrinsic.Control.CaseElse
+		F.Intrinsic.Control.If(V.Caller.Hook,=,15360,"or",V.Caller.Hook,=,15370,V.Caller.Hook,=,15380)
+			'Script button hooks for Employee Master
+			F.Intrinsic.Control.If(V.Passed.000003.Trim,=,"")
+				V.Local.sEmployee.Set("")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.LPad(V.Passed.000003.Trim,"0",5,V.Local.sEmployee)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.CallSub(OpenUserFields,"Employee",V.Local.sEmployee)
+		F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,15340)
+			'Populate hook for Employee Master
+			V.Passed.000110.Set("User Fields")
+			V.Passed.000111.Set("History")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(OpenUserFields,"Employee","***MENU ITEM***")
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.OpenUserFields.Start
+V.Local.sError.Declare
+V.Local.sColumns.Declare
+V.Local.sFilter.Declare
+V.Local.sDDLs.Declare
+V.Local.sColumnEdit.Declare
+V.Local.iVisibleIndex.Declare
+V.Local.iC.Declare
+V.Local.iDDL.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_User_Fields..ContextMenuCreate("ctxUsr")
+Gui.F_User_Fields..ContextMenuAddItem("ctxUsr","Export",0,"Export")
+Gui.F_User_Fields..ContextMenuSetItemEventHandler("ctxUsr","Export",UserFieldExport)
+Gui.F_User_Fields.gsgcUserFields.ContextMenuAttach("ctxUsr")
+
+'Get user fields and filter for employee, if one was passed
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Intrinsic.UI.InvokeWaitDialog("Loading Data","Connecting to DataBase")
+F.Data.DataTable.CreateFromSQL("dtUserFs","con","select * from GCG_5761_EMP_USR;",True)
+F.Intrinsic.UI.CloseWaitDialog
+F.Data.Dictionary.CreateFromSQL("dictEmployees","con","select EMPLOYEE, rtrim(NAME) from V_EMPLOYEE_MSTR")
+F.Data.Dictionary.CreateFromSQL("dictTerm","con","select EMPLOYEE, if(DATE_TERMINATION = '1900-01-01', cast(0 as bit), cast(1 as bit)) from V_EMPLOYEE_MSTR;")
+F.Data.DataTable.CreateFromSQL("dtUserFieldTs","con","select * from GCG_5761_EMP_USR_M;",True)
+F.Data.DataTable.CreateFromSQL("dtUserFieldDDLs","con","select USER_FIELD_NUM, DDL_01, DDL_02, DDL_03, DDL_04, DDL_05, DDL_06, DDL_07, DDL_08, DDL_09, DDL_10, DDL_11, DDL_12, DDL_13, DDL_14, DDL_15, DDL_16, DDL_17, DDL_18, DDL_19, DDL_20, DDL_21, DDL_22, DDL_23, DDL_24, DDL_25 from GCG_5761_USR_DDL;")
+F.ODBC.Connection!con.Close
+
+F.Data.Dictionary.SetDefaultReturn("dictEmployees","")
+F.Data.DataTable.AddColumn("dtUserFs","NAME","String")
+F.Data.DataTable.FillFromDictionary("dtUserFs","dictEmployees","EMPLOYEE","NAME")
+F.Data.Dictionary.Close("dictEmployees")
+
+F.Data.Dictionary.SetDefaultReturn("dictTerm",False)
+F.Data.DataTable.AddColumn("dtUserFs","TERMINATED","Boolean")
+F.Data.DataTable.FillFromDictionary("dtUserFs","dictTerm","EMPLOYEE","TERMINATED")
+F.Data.Dictionary.Close("dictTerm")
+
+Gui.F_User_Fields.gsgcUserFields.AddGridviewFromDatatable("gvUserFields","dtUserFs")
+
+Gui.F_User_Fields.gsgcUserFields.SetGridviewProperty("gvUserFields","OptionsViewColumnAutoWidth",False)
+
+V.Local.iVisibleIndex.Set(-1)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","Caption","ID")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","MinWidth","10")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","Width","45")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","Fixed","Left")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","AllowEdit",False)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","EMPLOYEE","ReadOnly",True)
+
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","Caption","Name")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","MinWidth","50")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","Width","150")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","Fixed","Left")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","AllowEdit",False)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","NAME","ReadOnly",True)
+
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","Caption","Terminated")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","MinWidth","50")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","Width","80")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","Fixed","Left")
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","AllowEdit",False)
+Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields","TERMINATED","ReadOnly",True)
+
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldTs.FieldNames,"*!*",V.Local.sColumns)
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldDDLs.FieldNames,"*!*",V.Local.sDDLs)
+F.Intrinsic.Variable.RemoveArrayElementByOrdinal(V.Local.sDDLs,0,V.Local.sDDLs)
+F.Data.DataView.Create("dtUserFieldDDLs","dvUserCheck")
+F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sColumns.UBound,1)
+	F.Intrinsic.Control.If(V.DataTable.dtUserFieldTs(0).[V.Local.sColumns(V.Local.iC)]!FieldValTrim,=,"")
+		Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"Visible",False)
+		Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"Caption","(Not Named)")
+	F.Intrinsic.Control.Else
+		Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"VisibleIndex",V.Local.iVisibleIndex.++)
+		Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"Caption",V.DataTable.dtUserFieldTs(0).[V.Local.sColumns(V.Local.iC)]!FieldValTrim)
+	F.Intrinsic.Control.EndIf
+	Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"MinWidth","50")
+	Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"Width","200")
+	Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"AllowEdit",True)
+	Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"ReadOnly",False)
+	Gui.F_User_Fields.gsgcUserFields.SetColumnProperty("gvUserFields",V.Local.sColumns(V.Local.iC),"CellBackColor","LightYellow")
+	
+	F.Intrinsic.String.Build("USER_FIELD_NUM = '{0}'",V.Local.sColumns(V.Local.iC),V.Local.sFilter)
+	F.Data.DataView.SetFilter("dtUserFieldDDLs","dvUserCheck",V.Local.sFilter)
+	F.Intrinsic.Control.If(V.DataView.dtUserFieldDDLs!dvUserCheck.RowCount,!=,0)
+		F.Intrinsic.Control.For(V.Local.iDDL,0,V.Local.sDDLs.UBound,1)
+			F.Intrinsic.Control.If(V.DataView.dtUserFieldDDLs!dvUserCheck(0).[V.Local.sDDLs(V.Local.iDDL)]!FieldValTrim,!=,"")
+				F.Intrinsic.Control.If(V.Local.sColumnEdit,!=,"")
+					F.Intrinsic.String.Build("{0}*!*",V.Local.sColumnEdit,V.Local.sColumnEdit)
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.String.Build("{0}{1}",V.Local.sColumnEdit,V.DataView.dtUserFieldDDLs!dvUserCheck(0).[V.Local.sDDLs(V.Local.iDDL)]!FieldValTrim,V.Local.sColumnEdit)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iDDL)
+		Gui.F_User_Fields.gsgcUserFields.ColumnEdit("gvUserFields",V.Local.sColumns(V.Local.iC),"DropDownList",V.Local.sColumnEdit)
+		V.Local.sColumnEdit.Set("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.Data.DataTable.AcceptChanges("dtUserFs")
+Gui.F_User_Fields.gsgcUserFields.MainView("gvUserFields")
+F.Intrinsic.Control.CallSub(Deserialize)
+
+'Takes Employee ID from Employee Master Screen and filters the dashboard if it isn't blank. If this is launched from a Menu Item, it doesn't apply a specific filter
+F.Intrinsic.Control.If(V.Args.Employee,!=,"","and",V.Args.Employee,!=,"***MENU ITEM***")
+	F.Intrinsic.String.Build("[EMPLOYEE] = '{0}'",V.Args.Employee,V.Local.sFilter)
+	Gui.F_User_Fields.gsgcUserFields.SetGridviewProperty("gvUserFields","ActiveFilterString",V.Local.sFilter)
+F.Intrinsic.Control.ElseIf(V.Args.Employee,!=,"***MENU ITEM***")
+	Gui.F_User_Fields.gsgcUserFields.SetGridviewProperty("gvUserFields","ActiveFilterString","")
+F.Intrinsic.Control.EndIf
+
+Gui.F_User_Fields..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenUserFields.End
+
+Program.Sub.EditUserFieldTitles.Start
+V.Local.sError.Declare
+V.Local.sColumn.Declare
+V.Local.sNumber.Declare
+V.Local.sFilter.Declare
+V.Local.iC.Declare
+V.Local.bExists.Declare
+F.Intrinsic.Control.Try
+
+F.ODBC.Connection!con.OpenCompanyConnection
+
+'Open Maintenance Table and display it
+F.Data.DataTable.CreateFromSQL("dtUserFieldTs","con","select * from GCG_5761_EMP_USR_M;",True)
+
+F.Intrinsic.Control.If(v.DataTable.dtUserFieldTs.RowCount,=,0)
+	F.Data.DataTable.AddRow("dtUserFieldTs","USER_01","User Field 1","USER_02","User Field 2","USER_03","User Field 3","USER_04","User Field 4","USER_05","User Field 5","USER_06","User Field 6","USER_07","User Field 7","USER_08","User Field 8","USER_09","User Field 9","USER_10","User Field 10","USER_11","User Field 11","USER_12","User Field 12","USER_13","User Field 13","USER_14","User Field 14","USER_15","User Field 15","USER_16","User Field 16","USER_17","User Field 17","USER_18","User Field 18","USER_19","User Field 19","USER_20","User Field 20","USER_21","User Field 21","USER_22","User Field 22","USER_23","User Field 23","USER_24","User Field 24","USER_25","User Field 25")
+	F.ODBC.Connection!con.Execute("insert into GCG_5761_EMP_USR_M (USER_01, USER_02, USER_03, USER_04, USER_05, USER_06, USER_07, USER_08, USER_09, USER_10, USER_11, USER_12, USER_13, USER_14, USER_15, USER_16, USER_17, USER_18, USER_19, USER_20, USER_21, USER_22, USER_23, USER_24, USER_25) values ('User Field 1', 'User Field 2', 'User Field 3', 'User Field 4', 'User Field 5', 'User Field 6', 'User Field 7', 'User Field 8', 'User Field 9', 'User Field 10', 'User Field 11', 'User Field 12', 'User Field 13', 'User Field 14', 'User Field 15', 'User Field 16', 'User Field 17', 'User Field 18', 'User Field 19', 'User Field 20', 'User Field 21', 'User Field 22', 'User Field 23', 'User Field 24', 'User Field 25');")
+F.Intrinsic.Control.EndIf
+F.Data.DataTable.CreateFromSQL("dtUserFieldDDLs","con","select USER_FIELD_NUM, DDL_01, DDL_02, DDL_03, DDL_04, DDL_05, DDL_06, DDL_07, DDL_08, DDL_09, DDL_10, DDL_11, DDL_12, DDL_13, DDL_14, DDL_15, DDL_16, DDL_17, DDL_18, DDL_19, DDL_20, DDL_21, DDL_22, DDL_23, DDL_24, DDL_25 from GCG_5761_USR_DDL;",True)
+F.ODBC.Connection!con.Close
+
+Gui.F_User_Maintenance.gsgcTitles.AddGridviewFromDatatable("gvTitles","dtUserFieldTs")
+
+Gui.F_User_Maintenance.gsgcTitles.SetGridviewProperty("gvTitles","Editable",True)
+Gui.F_User_Maintenance.gsgcTitles.SetGridviewProperty("gvTitles","ReadOnly",False)
+Gui.F_User_Maintenance.gsgcTitles.SetGridviewProperty("gvTitles","OptionsViewColumnAutoWidth",False)
+
+F.Data.DataView.Create("dtUserFieldDDLs","dvUserCheck",22)
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldTs.FieldNames,"*!*",V.Local.sColumn)
+F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sColumn.UBound,1)
+	F.Intrinsic.Math.Add(V.Local.iC,1,V.Local.sNumber)
+	F.Intrinsic.String.Build("User Field {0}",V.Local.sNumber,V.Local.sNumber)
+	
+	Gui.F_User_Maintenance.gsgcTitles.SetColumnProperty("gvTitles",V.Local.sColumn(V.Local.iC),"Caption",V.Local.sNumber)
+	Gui.F_User_Maintenance.gsgcTitles.SetColumnProperty("gvTitles",V.Local.sColumn(V.Local.iC),"MinWidth",75)
+	Gui.F_User_Maintenance.gsgcTitles.SetColumnProperty("gvTitles",V.Local.sColumn(V.Local.iC),"AllowEdit",True)
+	Gui.F_User_Maintenance.gsgcTitles.SetColumnProperty("gvTitles",V.Local.sColumn(V.Local.iC),"ReadOnly",False)
+	
+	F.Intrinsic.String.Build("USER_FIELD_NUM = '{0}'",V.Local.sColumn(V.Local.iC),V.Local.sFilter)
+	F.Data.DataView.SetFilter("dtUserFieldDDLs","dvUserCheck",V.Local.sFilter)
+	F.Intrinsic.Control.If(V.DataView.dtUserFieldDDLs!dvUserCheck.RowCount,=,0)
+		Gui.F_DropDown.ddlUserFields.AddItem(V.Local.sColumn(V.Local.iC))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+V.Local.sColumn.Redim(0,0)
+
+Gui.F_User_Maintenance.gsgcTitles.MainView("gvTitles")
+
+Gui.F_DropDown.gsgcDDLs.AddGridviewFromDatatable("gvDDLs","dtUserFieldDDLs")
+
+Gui.F_DropDown.gsgcDDLs.SetGridviewProperty("gvDDLs","Editable",True)
+Gui.F_DropDown.gsgcDDLs.SetGridviewProperty("gvDDLs","ReadOnly",False)
+Gui.F_DropDown.gsgcDDLs.SetGridviewProperty("gvDDLs","OptionsViewColumnAutoWidth",False)
+
+Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs","USER_FIELD_NUM","Caption","User Field")
+Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs","USER_FIELD_NUM","MinWidth",65)
+Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs","USER_FIELD_NUM","AllowEdit",False)
+Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs","USER_FIELD_NUM","ReadOnly",True)
+
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldDDLs.FieldNames,"*!*",V.Local.sColumn)
+F.Intrinsic.Control.For(V.Local.iC,1,V.Local.sColumn.UBound,1)
+	F.Intrinsic.String.Build("Drop Down Val {0}",V.Local.iC.String,V.Local.sNumber)
+	
+	Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs",V.Local.sColumn(V.Local.iC),"Caption",V.Local.sNumber)
+	Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs",V.Local.sColumn(V.Local.iC),"MinWidth",100)
+	Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs",V.Local.sColumn(V.Local.iC),"AllowEdit",True)
+	Gui.F_DropDown.gsgcDDLs.SetColumnProperty("gvDDLs",V.Local.sColumn(V.Local.iC),"ReadOnly",False)
+F.Intrinsic.Control.Next(V.Local.iC)
+V.Local.sColumn.Redim(0,0)
+
+Gui.F_DropDown.gsgcDDLs.MainView("gvDDLs")
+
+Gui.F_User_Maintenance..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.EditUserFieldTitles.End
+
+Program.Sub.cmdTitleSave_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.Execute("delete from GCG_5761_EMP_USR_M;")
+F.Data.DataTable.SaveToDB("dtUserFieldTs","con","GCG_5761_EMP_USR_M","USER_01",128)
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdTitleSave_Click.End
+
+Program.Sub.F_User_Maintenance_UnLoad.Start
+F.Intrinsic.Control.End
+Program.Sub.F_User_Maintenance_UnLoad.End
+
+Program.Sub.F_User_Fields_UnLoad.Start
+F.Intrinsic.Control.CallSub(Serialize)
+F.Intrinsic.Control.End
+Program.Sub.F_User_Fields_UnLoad.End
+
+Program.Sub.cmdSave_Click.Start
+V.Local.sError.Declare
+V.Local.sMessage.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataView.Create("dtUserFs","dvSave",20)
+F.Data.DataView.ToDataTable("dtUserFs","dvSave","dtSave",False)
+F.Data.DataTable.RemoveColumn("dtSave","NAME")
+F.Data.DataTable.RemoveColumn("dtSave","TERMINATED")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Data.DataTable.SaveToDB("dtSave","con","GCG_5761_EMP_USR","EMPLOYEE",256)
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.String.Build("Updated {0} Employee(s)",V.DataTable.dtSave.RowCount,V.Local.sMessage)
+F.Intrinsic.UI.Msgbox(V.Local.sMessage)
+
+F.Data.DataView.Close("dtUserFs","dvSave")
+F.Data.DataTable.AcceptChanges("dtUserFs")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.UserFieldExport.Start
+V.Local.sError.Declare
+V.Local.sForm.Declare(String, "F_User_Fields")
+V.Local.sControl.Declare(String, "gsgcUserFields")
+V.Local.sFileExport.Declare
+V.Local.sMsg.Declare
+V.Local.sDate.Declare
+V.Local.sTime.Declare
+V.Local.bExcel.Declare
+V.Local.bFileLocked.Declare
+F.Intrinsic.Control.Try
+
+'Arc Number - 5761
+F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+F.Intrinsic.String.DateString(V.Ambient.Date,V.Local.sDate)
+F.Intrinsic.String.TimeString(V.Ambient.Time,V.Local.sTime)
+F.Intrinsic.Control.If(V.Local.bExcel)
+	F.Intrinsic.String.Build("{0}\GCG_5761_{1}_Export_{2}_{3}.xlsx",V.Caller.LocalGSSTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File : {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0}\GCG_5761_{1}_Export_{2}_{3}.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.UserFieldExport.End
+
+Program.Sub.Serialize.Start
+V.Local.sError.Declare
+V.Local.Serialize.Declare
+F.Intrinsic.Control.Try
+
+'GridView - gvUserFields
+Gui.F_User_Fields.gsgcUserFields.Serialize("gvUserFields",V.Local.Serialize)
+F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvUserFields",5761,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.Serialize)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+V.Local.sError.Declare
+V.Local.Serialize.Declare
+F.Intrinsic.Control.Try
+
+'GridView - gvUserFields
+F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvUserFields",5761,1000,6,"",V.Local.Serialize)
+F.Intrinsic.Control.If(V.Local.Serialize.Trim,<>,"")
+	Gui.F_User_Fields.gsgcUserFields.Deserialize(V.Local.Serialize)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.cmdRepopulate_Click.Start
+V.Local.sError.Declare
+V.Local.sEmployees.Declare
+V.Local.sSQL.Declare
+V.Local.iC.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_User_Fields..Enabled(False)
+F.Intrinsic.UI.InvokeWaitDialog("Adding Employees to User Fields Table","Checking Employees")
+
+'Populate all employees into User Fields Table
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.ExecuteAndReturn("select distinct EMPLOYEE from V_EMPLOYEE_MSTR;",V.Local.sEmployees)
+F.Intrinsic.String.Split(V.Local.sEmployees,"#$#",V.Local.sEmployees)
+
+F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sEmployees.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus(V.Local.sEmployees(V.Local.iC),V.Local.iC,0,V.Local.sEmployees.UBound)
+	F.Intrinsic.String.Build("select 1 from GCG_5761_EMP_USR where EMPLOYEE = '{0}';",V.Local.sEmployees(V.Local.iC),V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+	F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+		F.Intrinsic.String.Build("insert into GCG_5761_EMP_USR (EMPLOYEE) values ('{0}');",V.Local.sEmployees(V.Local.iC),V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.UI.CloseWaitDialog
+Gui.F_User_Fields..Enabled(True)
+Gui.F_User_Fields..SetFocus
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdRepopulate_Click.End
+
+Program.Sub.F_DropDown_UnLoad.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_DropDown..Visible(False)
+
+Gui.F_User_Maintenance..Enabled(True)
+Gui.F_User_Maintenance..SetFocus
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.F_DropDown_UnLoad.End
+
+Program.Sub.cmdAddValue_Click.Start
+V.Local.sError.Declare
+V.Local.sColumns.Declare
+V.Local.sFilter.Declare
+V.Local.iC.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.F_DropDown!ddlUserFields.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.AddRow("dtUserFieldDDLs","USER_FIELD_NUM",V.Screen.F_DropDown!ddlUserFields.Text,"DDL_01","","DDL_02","","DDL_03","","DDL_04","","DDL_05","","DDL_06","","DDL_07","","DDL_08","","DDL_09","","DDL_10","","DDL_11","","DDL_12","","DDL_13","","DDL_14","","DDL_15","","DDL_16","","DDL_17","","DDL_18","","DDL_19","","DDL_20","","DDL_21","","DDL_22","","DDL_23","","DDL_24","","DDL_25","")
+
+Gui.F_DropDown.ddlUserFields.Text("")
+Gui.F_DropDown.ddlUserFields.ClearItems
+
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldTs.FieldNames,"*!*",V.Local.sColumns)
+F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sColumns.UBound,1)
+	F.Intrinsic.String.Build("USER_FIELD_NUM = '{0}'",V.Local.sColumns(V.Local.iC),V.Local.sFilter)
+	F.Data.DataView.SetFilter("dtUserFieldDDLs","dvUserCheck",V.Local.sFilter)
+	F.Intrinsic.Control.If(V.DataView.dtUserFieldDDLs!dvUserCheck.RowCount,=,0)
+		Gui.F_DropDown.ddlUserFields.AddItem(V.Local.sColumns(V.Local.iC))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAddValue_Click.End
+
+Program.Sub.cmdDDLSave_Click.Start
+V.Local.sError.Declare
+V.Local.sColumns.Declare
+V.Local.sFilter.Declare
+V.Local.iC.Declare
+F.Intrinsic.Control.Try
+
+F.Data.DataView.Create("dtUserFieldDDLs","dvSave",22,"DDL_01 <> '' or DDL_02 <> '' or DDL_03 <> '' or DDL_04 <> '' or DDL_05 <> '' or DDL_06 <> '' or DDL_07 <> '' or DDL_08 <> '' or DDL_09 <> '' or DDL_10 <> '' or DDL_11 <> '' or DDL_12 <> '' or DDL_13 <> '' or DDL_14 <> '' or DDL_15 <> '' or DDL_16 <> '' or DDL_17 <> '' or DDL_18 <> '' or DDL_19 <> '' or DDL_20 <> '' or DDL_21 <> '' or DDL_22 <> '' or DDL_23 <> '' or DDL_24 <> '' or DDL_25 <> ''",)
+F.Data.DataView.ToDataTable("dtUserFieldDDLs","dvSave","dtSave")
+F.Data.DataTable.DeleteRow("dtUserFieldDDLs")
+F.Data.DataTable.Merge("dtSave","dtUserFieldDDLs",True,2)
+F.Data.DataTable.Close("dtSave")
+F.Data.DataView.Close("dtUserFieldDDLs","dvSave")
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.ODBC.Connection!con.Execute("delete from GCG_5761_USR_DDL;")
+F.Data.DataTable.SaveToDB("dtUserFieldDDLs","con","GCG_5761_USR_DDL","USER_FIELD_NUM",128)
+F.ODBC.Connection!con.Close
+
+Gui.F_DropDown.ddlUserFields.Text("")
+Gui.F_DropDown.ddlUserFields.ClearItems
+
+F.Intrinsic.String.Split(V.DataTable.dtUserFieldTs.FieldNames,"*!*",V.Local.sColumns)
+F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sColumns.UBound,1)
+	F.Intrinsic.String.Build("USER_FIELD_NUM = '{0}'",V.Local.sColumns(V.Local.iC),V.Local.sFilter)
+	F.Data.DataView.SetFilter("dtUserFieldDDLs","dvUserCheck",V.Local.sFilter)
+	F.Intrinsic.Control.If(V.DataView.dtUserFieldDDLs!dvUserCheck.RowCount,=,0)
+		Gui.F_DropDown.ddlUserFields.AddItem(V.Local.sColumns(V.Local.iC))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdDDLSave_Click.End
+
+Program.Sub.cmdOpenDDLs_Click.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.Try
+
+Gui.F_User_Maintenance..Enabled(False)
+
+Gui.F_DropDown..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOpenDDLs_Click.End
